@@ -43,3 +43,13 @@ resource "aws_backup_plan" "backup_plan" {
     }
   }
 }
+
+resource "aws_backup_selection" "backup_selection" {
+  count = var.create_backup_selection ? 1 : 0
+
+  name          = var.backup_selection_name
+  plan_id       = aws_backup_plan.backup_plan[0].id
+  iam_role_arn  = var.backup_selection_iam_role_arn
+  resources     = var.backup_selection_resources
+  not_resources = var.backup_selection_not_resources
+}
