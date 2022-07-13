@@ -40,6 +40,12 @@ variable "backup_plan_name" {
   type        = string
 }
 
+variable "backup_plan_tags" {
+  default     = null
+  description = "Metadata that you can assign to help organize the plans you create"
+  type        = map(string)
+}
+
 variable "backup_plan_rule" {
   default     = null
   description = "Reuiqred if `create_backup_plan` is set to `true`. A rule object that specifies a scheduled task that is used to back up a selection of resources"

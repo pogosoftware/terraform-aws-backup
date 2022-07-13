@@ -10,6 +10,7 @@ resource "aws_backup_plan" "backup_plan" {
   count = var.create_backup_plan ? 1 : 0
 
   name = var.backup_plan_name
+  tags = var.backup_plan_tags
 
   dynamic "rule" {
     for_each = var.backup_plan_rule != null ? [var.backup_plan_rule] : []
