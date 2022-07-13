@@ -28,3 +28,11 @@ output "backup_plan_arn" {
   description = "The ARN of the backup plan"
   value       = try(aws_backup_plan.backup_plan[0].arn, "")
 }
+
+####################################################################################################
+### aws_backup_selection
+####################################################################################################
+output "backup_selection_id" {
+  description = "The id of the backup plan"
+  value       = try(aws_backup_selection.backup_selection[0].id, "")
+}
